@@ -33,7 +33,7 @@
         .container {
             padding: 20px;
         }
-        .product, .cart-item {
+        .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,6 +41,16 @@
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
+        }
+        .product {
+            display: inline-block;
+            width: 30%;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
         }
         .product img {
             max-width: 100%;
@@ -101,6 +111,15 @@
             <p>$59.99</p>
             <button onclick="addToCart(3, 'Cozy Jacket', 59.99)">Add to Cart</button>
         </div>
+
+        <div class="cart">
+          <h2>Your Cart</h2>
+          <div id="cart-items"></div>
+          <div>
+              <strong>Total: $<span id="cart-total">0.00</span></strong>
+          </div>
+      </div>
+      
     </div>
     <footer>
         <p>&copy; 2025 Trendy Threads. All rights reserved.</p>
