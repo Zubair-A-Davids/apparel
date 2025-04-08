@@ -48,34 +48,37 @@
     <footer>
         <p>&copy; 2025 Clothing Store. All Rights Reserved.</p>
     </footer>
+    
+    <!-- JS Script-->
     <script>
         // Load Cart Data from Local Storage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         function loadCart() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
 
-            cart.forEach(item => {
-                total += item.price * item.quantity;
+    cart.forEach(item => {
+        total += item.price * item.quantity;
 
-                cartItemsContainer.innerHTML += `
-                    <div class="cart-item">
-                        <span>${item.name} ($${item.price})</span>
-                        <div>
-                            <button onclick="changeQuantity(${item.id}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button onclick="changeQuantity(${item.id}, 1)">+</button>
-                            <button onclick="removeItem(${item.id})">Remove</button>
-                        </div>
-                    </div>
-                `;
-            });
+        cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+                <span>${item.name} ($${item.price})</span>
+                <span>Size: ${item.size}, Color: ${item.color}</span>
+                <div>
+                    <button onclick="changeQuantity(${item.id}, -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                    <button onclick="removeItem(${item.id})">Remove</button>
+                </div>
+            </div>
+        `;
+    });
 
-            cartTotal.textContent = total.toFixed(2);
-        }
+    cartTotal.textContent = total.toFixed(2); // Update total price
+}
 
         function changeQuantity(id, change) {
             const item = cart.find(item => item.id === id);
@@ -96,7 +99,7 @@
         }
 
         function goBack() {
-            window.location.href = 'index.html'; // Replace 'index.html' with your main product page.
+            window.location.href = 'index.html';
         }
 
         // Initialize Cart Page

@@ -12,10 +12,15 @@
             padding: 0;
         }
         header {
+            background-image: url("C:/Users/iqraz/GITHUB/apparel/images/background-wallpaper-Color-0.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
             background-color: #333;
             color: white;
             padding: 10px 20px;
             text-align: center;
+            position: relative;
         }
         nav {
             background-color: #444;
@@ -42,6 +47,20 @@
             padding: 10px;
             border-radius: 5px;
         }
+        #cart-button {
+        position: absolute; /* Position the button relative to the header */
+        top: 10px; /* Adjust the distance from the top edge */
+        right: 20px; /* Adjust the distance from the right edge */
+        background-color: #ff9800;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        #cart-button:hover {
+        background-color: #e68a00; /* Add hover effect */
+        }
         .product {
             display: inline-block;
             width: 30%;
@@ -52,6 +71,17 @@
             padding: 10px;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
         }
+        #item-button {
+        background-color: #ff9800;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #item-button:hover {
+        background-color: #e68a00; /* Add hover effect */
+    }
         .product img {
             max-width: 100%;
             height: auto;
@@ -72,7 +102,17 @@
             border-top: 2px solid #333;
             padding-top: 20px;
         }
+        select {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #332121;
+    border-radius: 5px;
+}
         footer {
+            background-image: url("C:/Users/iqraz/GITHUB/apparel/images/background-wallpaper-Color-0.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
             background-color: #333;
             color: white;
             text-align: center;
@@ -81,38 +121,114 @@
             bottom: 0;
             width: 100%;
         }
+        .popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+.popup-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: black;
+    background: none;
+    border: none;
+}
     </style>
 </head>
 <body>
     <header>
         <h1>Welcome to Trendy Threads</h1>
-        <button id="right" onclick="goToCart()">Go to Cart</button>
+        <button id="cart-button" onclick="goToCart()">Go to Cart</button>
     </header>
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Cart</a>
     </nav>
+    
     <div class="container">
-        <div class="product" data-id="1" data-name="Cool T-Shirt" data-price="19.99">
-            <img src="placeholder1.jpg" alt="T-Shirt">
+<!-- ITEM 1 -->
+      <div class="product" data-id="1" data-name="Cool T-Shirt" data-price="19.99">
+            <img src="images/laptop-1.jpg" alt="T-Shirt">
             <h3>Cool T-Shirt</h3>
             <p>$19.99</p>
-            <button onclick="addToCart(1, 'Cool T-Shirt', 19.99)">Add to Cart</button>
-        </div>
+            <button id="item-button" onclick="openPopup('Cool T-Shirt', 'This is a cool t-shirt made of 100% cotton. Available in various sizes and colors.', 'images/laptop-1.jpg')">More Info</button>
+          </div>
+          <div id="product-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-button" onclick="closePopup()">&times;</span>
+                <img id="popup-image" src="../images/laptop-1.jpg" alt="Product Image">
+                <h2 id="popup-title"></h2>
+                <p id="popup-description"></p>
+                <h3>$19.99</h3>
+                <div>
+                    <label for="size-1">Size:</label>
+                    <select id="size-1">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="color-1">Color:</label>
+                    <select id="color-1">
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                        <option value="Black">Black</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="amountSlider">Quantity:</label>
+                    <input type="range" id="amountSlider" min="1" max="10" value="1" onchange="updateSliderValue()" />
+                    <span id="sliderValue">1</span>
+                </div>
+                <button id="item-button" onclick="addToCart(1, 'Cool T-Shirt', 19.99, 'size-1', 'color-1')">Add to Cart</button>
+                </div>
+            </div>
+
         <div class="product" data-id="2" data-name="Stylish Jeans" data-price="39.99">
             <img src="placeholder2.jpg" alt="Jeans">
             <h3>Stylish Jeans</h3>
             <p>$39.99</p>
-            <button onclick="addToCart(2, 'Stylish Jeans', 39.99)">Add to Cart</button>
+            <button id="item-button" onclick="addToCart(2, 'Stylish Jeans', 39.99)">Add to Cart</button>
         </div>
         <div class="product" data-id="3" data-name="Cozy Jacket" data-price="59.99">
             <img src="placeholder3.jpg" alt="Jacket">
             <h3>Cozy Jacket</h3>
             <p>$59.99</p>
-            <button onclick="addToCart(3, 'Cozy Jacket', 59.99)">Add to Cart</button>
+            <button id="item-button" onclick="addToCart(3, 'Cozy Jacket', 59.99)">Add to Cart</button>
         </div>
 
+<!-- cart -->
         <div class="cart">
           <h2>Your Cart</h2>
           <div id="cart-items"></div>
@@ -126,81 +242,50 @@
         <p>&copy; 2025 Trendy Threads. All rights reserved.</p>
     </footer>
 
+<!-- Scripts -->
   <script>
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
-      function addToCart(id, name, price) {
-          const existingItem = cart.find(item => item.id === id);
-          if (existingItem) {
-              existingItem.quantity++;
-          } else {
-              cart.push({ id, name, price, quantity: 1 });
-          }
-          localStorage.setItem('cart', JSON.stringify(cart));
-          alert(`${name} has been added to your cart!`);
-      }
-  
-      function goToCart() {
+      function updateSliderValue() {
+    const sliderValue = document.getElementById('amountSlider').value;
+    document.getElementById('sliderValue').textContent = sliderValue;
+}
+
+function addToCart(id, name, price, sizeId, colorId) {
+    const size = document.getElementById(sizeId).value;
+    const color = document.getElementById(colorId).value;
+    const quantity = parseInt(document.getElementById('amountSlider').value); // Retrieve slider value
+
+    const existingItem = cart.find(item => item.id === id && item.size === size && item.color === color);
+
+    if (existingItem) {
+        existingItem.quantity += quantity; // Add selected quantity to existing item
+    } else {
+        cart.push({ id, name, price, size, color, quantity }); // Add as new item with slider quantity
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${name} (Size: ${size}, Color: ${color}, Quantity: ${quantity}) has been added to your cart!`);
+    updateCart();
+}
+  function goToCart() {
           window.location.href = 'cart.html';
       }
   </script>
 
-  <!-- <script>
-        let cart = [];
+  <script>
+function openPopup(title, description, imageSrc) {
+    const popup = document.getElementById('product-popup');
+    document.getElementById('popup-title').textContent = title;
+    document.getElementById('popup-description').textContent = description;
+    document.getElementById('popup-image').src = imageSrc;
+    popup.style.display = 'flex'; // Show the popup
+}
 
-        function addToCart(id, name, price) {
-            const existingItem = cart.find(item => item.id === id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ id, name, price, quantity: 1 });
-            }
-            updateCart();
-        }
+function closePopup() {
+    const popup = document.getElementById('product-popup');
+    popup.style.display = 'none'; // Hide the popup
+}
 
-        function updateCart() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
-
-            cart.forEach(item => {
-                total += item.price * item.quantity;
-
-                cartItemsContainer.innerHTML += `
-                    <div class="cart-item">
-                        <span>${item.name} ($${item.price})</span>
-                        <div>
-                            <button onclick="changeQuantity(${item.id}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button onclick="changeQuantity(${item.id}, 1)">+</button>
-                            <button onclick="removeItem(${item.id})">Remove</button>
-                        </div>
-                    </div>
-                `;
-            });
-
-            cartTotal.textContent = total.toFixed(2);
-        }
-
-        function changeQuantity(id, change) {
-            const item = cart.find(item => item.id === id);
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    removeItem(id);
-                } else {
-                    updateCart();
-                }
-            }
-        }
-
-        function removeItem(id) {
-            cart = cart.filter(item => item.id !== id);
-            updateCart();
-        }
-    </script>
--->
-
+  </script>
 </body>
 </html>
