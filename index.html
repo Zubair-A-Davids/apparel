@@ -1,291 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clothing Store with Cart</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-image: url("C:/Users/iqraz/GITHUB/apparel/images/background-wallpaper-Color-0.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            position: relative;
-        }
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            padding: 20px;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        #cart-button {
-        position: absolute; /* Position the button relative to the header */
-        top: 10px; /* Adjust the distance from the top edge */
-        right: 20px; /* Adjust the distance from the right edge */
-        background-color: #ff9800;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        }
-        #cart-button:hover {
-        background-color: #e68a00; /* Add hover effect */
-        }
-        .product {
-            display: inline-block;
-            width: 30%;
-            margin: 10px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-        }
-        #item-button {
-        background-color: #ff9800;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    #item-button:hover {
-        background-color: #e68a00; /* Add hover effect */
-    }
-        .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .product h3 {
-            margin: 10px 0;
-        }
-        .product p {
-            color: #555;
-        }
-        button {
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .cart {
-            margin-top: 20px;
-            border-top: 2px solid #333;
-            padding-top: 20px;
-        }
-        select {
-    margin: 5px 0;
-    padding: 5px;
-    border: 1px solid #332121;
-    border-radius: 5px;
-}
-        footer {
-            background-image: url("C:/Users/iqraz/GITHUB/apparel/images/background-wallpaper-Color-0.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    position: relative;
-}
-
-.popup-content img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 8px;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    color: black;
-    background: none;
-    border: none;
-}
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ekko Clothing</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+<!-- Styles END -->
+
 <body>
-    <header>
-        <h1>Welcome to Trendy Threads</h1>
-        <button id="cart-button" onclick="goToCart()">Go to Cart</button>
-    </header>
+  <header id="Home">
+    <div class="brand">
+        <img src="images/logo3.png" alt="Ekko Logo">
+        </div>
+    <h1>Ekko Clothing</h1> <br>
+    <button id="cart-button" onclick="goToCart()">Go to Cart</button>
+  </header>
+
+<!-- Navigation Bar Start -->
+  <nav>
+    <a href="#Home">Home</a>
+    <a href="#Boys">Boys</a>
+    <a href="#Girls">Girls</a>
+    <a href="#Hats">Hats</a>
+    <a href="#About">About</a>
+    <a href="#Contact">Contact</a>
+  </nav>
+<!-- Navigation Bar END -->
+
+<!-- Product Section Start -->
+  <div class="container">
+    <h2>Welcome to Ekko Clothing, your online closet</h2>
+
+    <!-- Floating button to get to top of page -->
+    <button id="special-float-button" onclick="location.href='#Home'">Back to Top</button>
+    <!-- Nav Bar for Boys Products -->
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Cart</a>
+        <h1>Shop Boys Clothing</h1>
     </nav>
-    
-    <div class="container">
-<!-- ITEM 1 -->
-      <div class="product" data-id="1" data-name="Cool T-Shirt" data-price="19.99">
-            <img src="images/laptop-1.jpg" alt="T-Shirt">
-            <h3>Cool T-Shirt</h3>
-            <p>$19.99</p>
-            <button id="item-button" onclick="openPopup('Cool T-Shirt', 'This is a cool t-shirt made of 100% cotton. Available in various sizes and colors.', 'images/laptop-1.jpg')">More Info</button>
-          </div>
-          <div id="product-popup" class="popup">
-            <div class="popup-content">
-                <span class="close-button" onclick="closePopup()">&times;</span>
-                <img id="popup-image" src="../images/laptop-1.jpg" alt="Product Image">
-                <h2 id="popup-title"></h2>
-                <p id="popup-description"></p>
-                <h3>$19.99</h3>
-                <div>
-                    <label for="size-1">Size:</label>
-                    <select id="size-1">
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="color-1">Color:</label>
-                    <select id="color-1">
-                        <option value="Red">Red</option>
-                        <option value="Blue">Blue</option>
-                        <option value="Green">Green</option>
-                        <option value="Black">Black</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="amountSlider">Quantity:</label>
-                    <input type="range" id="amountSlider" min="1" max="10" value="1" onchange="updateSliderValue()" />
-                    <span id="sliderValue">1</span>
-                </div>
-                <button id="item-button" onclick="addToCart(1, 'Cool T-Shirt', 19.99, 'size-1', 'color-1')">Add to Cart</button>
-                </div>
-            </div>
 
-        <div class="product" data-id="2" data-name="Stylish Jeans" data-price="39.99">
-            <img src="placeholder2.jpg" alt="Jeans">
-            <h3>Stylish Jeans</h3>
-            <p>$39.99</p>
-            <button id="item-button" onclick="addToCart(2, 'Stylish Jeans', 39.99)">Add to Cart</button>
+<!-- Boys Products -->
+    <!-- Product 1 -->
+    <div class="product" id="Boys">
+        <div class="image-wrapper">
+      <img src="images/tshirt.jpg" alt="Incredible Hulk Cotton T-shirt">
         </div>
-        <div class="product" data-id="3" data-name="Cozy Jacket" data-price="59.99">
-            <img src="placeholder3.jpg" alt="Jacket">
-            <h3>Cozy Jacket</h3>
-            <p>$59.99</p>
-            <button id="item-button" onclick="addToCart(3, 'Cozy Jacket', 59.99)">Add to Cart</button>
-        </div>
-
-<!-- cart -->
-        <div class="cart">
-          <h2>Your Cart</h2>
-          <div id="cart-items"></div>
-          <div>
-              <strong>Total: $<span id="cart-total">0.00</span></strong>
-          </div>
-      </div>
-
+      <h3>Incredible Hulk Cotton T-shirt</h3>
+      <p>R 149.99</p>
+      <button id="item-button" onclick="openPopup('Incredible Hulk Cotton T-shirt', 'Our Incredible Hulk T-shirt is cook-kid-approved and the go-to choice for showing off his superhero spirit. Its crafted from soft, breathable cotton and finished with a bold Hulk graphic.', 'images/tshirt.jpg', 149.99, 1)">More Info</button>
     </div>
-    <footer>
-        <p>&copy; 2025 Trendy Threads. All rights reserved.</p>
-    </footer>
+
+       <!-- Product 2 -->
+       <div class="product">
+        <div class="image-wrapper">
+      <img src="images/shirt2.png" alt="Boys Long Sleeve T-Shirt 3 Pack">
+        </div>
+      <h3>Boys Long Sleeve T-Shirt 3 Pack</h3>
+      <p>R 319.99</p>
+      <button id="item-button" onclick="openPopup('Boys Long Sleeve T-Shirt 3 Pack', 'Pack of 3. Cotton Blend. Crew neck. Long sleeves. Assorted prints. Stylish and comfy.', 'images/shirt2.png', 319.99, 2)">More Info</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/shirt3.png" alt="The North Face Boys Youth Digi Dome Graphic T-shirt">
+      </div>
+      <h3>The North Face Boys Youth Digi Dome Graphic T-shirt</h3>
+      <p>R 249.99</p>
+      <button id="item-button" onclick="openPopup('The North Face Boys Youth Digi Dome Graphic T-shirt', 'Elevate your wardrobe with The North Face Youth Digi Dome Graphic Tee. Made of ultra-soft cotton, this relaxed fit shirt is perfect for everyday wear. Its cool design adds a trendy touch to any outfit.', 'images/shirt3.png', 249.99, 3)">More Info</button>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/jacket.png" alt="TS Boys Fatigue Puffer Jacket">
+      </div>
+      <h3>TS Boys Fatigue Puffer Jacket</h3>
+      <p>R 319.99</p>
+      <button id="item-button" onclick="openPopup('TS Boys Fatigue Puffer Jacket', 'The TS Boys Fatigue puffer jacket combines warmth, comfort, and style to keep your young one ready for anything, no matter the weather.', 'images/jacket.png', 319.99, 4)">More Info</button>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/jeans.png" alt="TS Boys Dynamic Fleece Brown Jogger">
+        </div>
+      <h3>TS Boys Dynamic Fleece Brown Jogger</h3>
+      <p>R 168.99</p>
+      <button id="item-button" onclick="openPopup('TS Boys Dynamic Fleece Brown Jogger', 'Stay comfy while having fun in these joggers.', 'images/jeans.png', 168.99, 5)">More Info</button>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/jacket2.png" alt="TS Boys Victory Through Effort Light Grey Crew">
+        </div>
+      <h3>TS Boys Victory Through Effort Light Grey Crew</h3>
+      <p>R 239.99</p>
+      <button id="item-button" onclick="openPopup('TS Boys Victory Through Effort Light Grey Crew', 'Every day crew sweatshirt. A soft fabric blend and stay-put ribbed hem and cuffs provide reliable comfort.', 'images/jacket2.png', 239.99, 6)">More Info</button>
+    </div>
+
+<!-- Nav Bar for Girls Products -->
+<nav>
+    <h1>Shop Girls Clothing</h1>
+</nav>
+
+<!-- Girls Products -->
+       <!-- Product 7 -->
+       <div class="product" id="Girls">
+        <div class="image-wrapper">
+      <img src="images/dress2.png" alt="Exact Younger Girl's White Heart Print Onsie">
+        </div>
+      <h3>Exact Younger Girl's White Heart Print Onsie</h3>
+      <p>R 149.99</p>
+      <button id="item-button" onclick="openPopup('Exact Younger Girls White Heart Print Onsie', 'Keep your little one snuggled up in style with this cozy white heart print onsie! Made from soft coral fleece, this onsie is perfect for lounging at home. This onsie is warm, comfortable and perfect for all-day relaxation, its a must-have in any wardrobe.', 'images/dress2.png', 149.99, 7)">More Info</button>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/jacket4.png" alt="Jet Younger Girls Pink Puffer Jacket">
+      </div>
+      <h3>Jet Younger Girls Pink Puffer Jacket</h3>
+      <p>R 189.99</p>
+      <button id="item-button" onclick="openPopup('Jet Younger Girls Pink Puffer Jacket', 'Stay cozy and chic with Jets Pink Puffer Jacket. This trendy outerwear features a stylish design and is made with high-quality polyester to keep you warm. Perfect for any casual outing, this jacket is a must-have for your wardrobe. Add a pop of color to your look with this versatile piece.', 'images/jacket4.png', 189.99, 8)">More Info</button>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/dress.png" alt="Exact Girl's White & Black Striped Combo Dress">
+      </div>
+      <h3>Exact Girl's White & Black Striped Combo Dress</h3>
+      <p>R 119.99</p>
+      <button id="item-button" onclick="openPopup('Exact Girls White & Black Striped Combo Dress', 'Get your little one ready for any occasion with this white and black striped ribbed dress. Made with a comfortable ribbed fabric, featuring a combo of a striped top and black skirt. Perfect for keeping up with your childs active lifestyle, this dress is a versatile wardrobe essential.', 'images/dress.png', 119.99, 9)">More Info</button>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/jacket3.png" alt="Jet Younger Girls Pink Barbie Hoodie">
+        </div>
+      <h3>Jet Younger Girls Pink Barbie Hoodie</h3>
+      <p>R 139.99</p>
+      <button id="item-button" onclick="openPopup('Jet Younger Girls Pink Barbie Hoodie', 'Stay cozy with the Jet Younger Girls Pink Barbie Hoodie. This adorable zip-thru features a cute Barbie design on the front. Made from a comfortable cotton blend, its perfect for everyday wear.  Perfect for any Barbie fan looking to add a pop of pink to their wardrobe!', 'images/jacket3.png', 139.99, 10)">More Info</button>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/jacket5.png" alt="Jet Younger Girls Cream/Black Faux Fur Hoodie">
+        </div>
+      <h3>Jet Younger Girls Cream/Black Faux Fur Hoodie</h3>
+      <p>R 219.99</p>
+      <button id="item-button" onclick="openPopup('Jet Younger Girls Cream/Black Faux Fur Hoodie', 'Introducing the JetYounger cream and black faux fur hoodie, perfect for keeping your little one cozy and stylish. This hoodie features a luxurious faux fur trim on the hood and comes in a range of sizes. Stay warm and fashionable with this adorable wardrobe essential.', 'images/jacket5.png', 219.99, 11)">More Info</button>
+    </div>
+
+    <!-- Product 12 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/sweater.png" alt="Cotton On Kids Girl Blue Lucy Cable Jumper">
+        </div>
+      <h3>Cotton On Kids Girl Blue Lucy Cable Jumper</h3>
+      <p>R 299.99</p>
+      <button id="item-button" onclick="openPopup('Cotton On Kids Girl Blue Lucy Cable Jumper', 'Standard length - Cable design - Set in sleeve shape - Long sleeves', 'images/sweater.png', 299.99, 12)">More Info</button>
+    </div>
+
+<!-- Nav Bar for Shop Hats and Beanies -->
+<nav>
+    <h1>Shop Hats and Beanies</h1>
+</nav>
+
+<!-- Misc Products -->
+    <!-- Product 13 -->
+    <div class="product" id="Hats">
+        <div class="image-wrapper">
+      <img src="images/hat2.png" alt="Boy's Charcoal Beanie">
+        </div>
+      <h3>Boy's Charcoal Beanie</h3>
+      <p>R 59.99</p>
+      <button id="item-button" onclick="openPopup('Boys Charcoal Beanie', 'Stay warm and stylish on chilly days with our charcoal beanie. Made from a cosy knit, it offers all-day comfort and warmth. it pairs effortlessly with any outfit for a casual look. Perfect for staying cozy in the cold.', 'images/hat2.png', 59.99, 13)">More Info</button>
+    </div>
+
+    <!-- Product 14 -->
+    <div class="product">
+        <div class="image-wrapper">
+      <img src="images/hat3.png" alt="Boy's Navy Striped Beanie & Glove Set">
+        </div>
+      <h3>Boy's Navy Striped Beanie & Glove Set</h3>
+      <p>R 94.99</p>
+      <button id="item-button" onclick="openPopup('Boys Navy Striped Beanie & Glove Set', 'Keep your little one cozy in our navy & grey glove & beanie set, made for ultimate warmth and comfort. Perfect for chilly days, this set is designed to keep you stylish and snug. This set is sure to add a touch of charm to your little ones winter wardrobe.', 'images/hat3.png', 94.99, 14)">More Info</button>
+    </div>
+
+      <!-- Product 15 -->
+      <div class="product">
+        <div class="image-wrapper">
+      <img src="images/hat.jpg" alt="Classic Foldover Beanies 2 Pack">
+        </div>
+      <h3>Classic Foldover Beanies 2 Pack</h3>
+      <p>R 139.99</p>
+      <button id="item-button" onclick="openPopup('Classic Foldover Beanies 2 Pack', 'Double up on cold-weather style with these classic foldover beanies, designed for a casual, understated look that blends comfort, warmth and effortless wearability.', 'images/hat.jpg', 139.99, 15)">More Info</button>
+    </div>
+
+          <!-- Product 16 -->
+      <div class="product">
+        <div class="image-wrapper">
+      <img src="images/hat4.png" alt="Boy's Blue Shark Peak Cap">
+        </div>
+      <h3>Boy's Blue Shark Peak Cap</h3>
+      <p>R 79.99</p>
+      <button id="item-button" onclick="openPopup('Boys Blue Shark Peak Cap', 'This shark printed cap will be the perfect addition to any outfit for the coolest look.', 'images/hat4.png', 79.99, 16)">More Info</button>
+    </div>
+
+          <!-- Product 17 -->
+      <div class="product">
+        <div class="image-wrapper">
+      <img src="images/hat5.png" alt="Boy's Rust Beanie">
+        </div>
+      <h3>Boy's Rust Beanie</h3>
+      <p>R 39.99</p>
+      <button id="item-button" onclick="openPopup('Boys Rust Beanie', 'This beanie is just what your little one needs to keep him cozy and stylish all season long.', 'images/hat5.png', 39.99, 17)">More Info</button>
+    </div>
+
+          <!-- Product 18 -->
+      <div class="product">
+        <div class="image-wrapper">
+      <img src="images/hat6.png" alt="Girl's Pink Rib Pom Pom Beanie">
+        </div>
+      <h3>Girl's Pink Rib Pom Pom Beanie</h3>
+      <p>R 59.99</p>
+      <button id="item-button" onclick="openPopup('Girls Pink Rib Pom Pom Beanie', 'Keep your little one cozy in style with this pink tonal rib pom pom beanie. Made of ribbed acrylic for comfort and warmth, with a cute -xoxo- badge. From school days to outdoor adventures, she ll love this beanie all season long.', 'images/hat6.png', 59.99, 18)">More Info</button>
+    </div>
+</div>
+
+  <!-- Popup info for Products -->
+  <div id="product-popup" class="popup">
+    <div class="popup-content">
+        <button class="close-button" onclick="closePopup()">&times;</button>
+      
+        <!-- To make image be on the left of the popup -->
+        <img id="popup-image" src="" alt="" style="max-width: 250px; height: auto; border-radius: 8px;"/>
+      
+        <!-- The text or options will be on the left -->
+        <div class="popup-info">
+          <h2 id="popup-title"></h2>
+          <p id="popup-description"></p>
+          <h3 id="popup-price"></h3>
+          <div>
+            <label>Size:</label>
+            <select id="popup-size">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+          <div>
+            <label>Color:</label>
+            <select id="popup-color">
+              <option value="Red">Red</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+              <option value="Black">Black</option>
+            </select>
+          </div>
+          <div>
+            <label>Quantity:</label>
+            <input type="range" id="amountSlider" min="1" max="10" value="1" onchange="updateSliderValue()"/>
+            <span id="sliderValue">1</span>
+          </div>
+          <button id="item-button" onclick="addToCartFromPopup()">Add to Cart</button>
+        </div>
+      </div>
+    </div>      
+<!-- Popup info END -->
+
+<nav>
+    <h1 id="About">About</h1>
+<div class="brand">
+    <img src="images/logo4.png" alt="Ekko Logo">
+    <h2>Ekko Clothing is one of Johannesburg’s fastest-growing retailers, is now taking its beloved kids’ fashion brand online.
+            Known for stylish, high-quality children’s clothing, Ekko has built a strong local presence through its physical stores.
+            Now, the brand is expanding nationwide—reaching families across South Africa exclusively through online sales.
+            With this new digital storefront, Ekko Clothing is making it easier than ever for parents to shop trendy, affordable outfits for their little ones,
+            no matter where they are.
+    </h2>
+</div>
+</nav>
+
+<div class="text-image-section" id="Contact">
+    <div class="text-content">
+        <h2>Contact Info</h2>
+        <ul class="invisible-list">
+          <li><strong><span class="text-green">Main Location:</span></strong> Carlton Centre, Johannesburg</li>
+          <li><strong><span class="text-green">Email:</span></strong>  ekko_clothing@ekko.co.za</li>
+          <li><strong><span class="text-green">Cell Number:</span></strong>  234 900 345</li>
+          <li><strong><span class="text-green">Banking Details:</span></strong>  Capitec Bank 2352432934</li>
+        </ul>
+      </div>
+    <div class="image-content">
+      <img src="images/map.png" alt="Map of Ekko Location">
+    </div>
+  </div>
+<!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ekko Clothing. All rights reserved.</p>
+  </footer>
+<!-- Footer END -->
 
 <!-- Scripts -->
   <script>
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      function updateSliderValue() {
-    const sliderValue = document.getElementById('amountSlider').value;
-    document.getElementById('sliderValue').textContent = sliderValue;
-}
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function addToCart(id, name, price, sizeId, colorId) {
-    const size = document.getElementById(sizeId).value;
-    const color = document.getElementById(colorId).value;
-    const quantity = parseInt(document.getElementById('amountSlider').value); // Retrieve slider value
+    let currentProductId, currentProductName, currentProductPrice;
 
-    const existingItem = cart.find(item => item.id === id && item.size === size && item.color === color);
+    function openPopup(title, description, image, price, id) {
+      currentProductId = id;
+      currentProductName = title;
+      currentProductPrice = price;
 
-    if (existingItem) {
-        existingItem.quantity += quantity; // Add selected quantity to existing item
-    } else {
-        cart.push({ id, name, price, size, color, quantity }); // Add as new item with slider quantity
+      document.getElementById("popup-title").textContent = title;
+      document.getElementById("popup-description").textContent = description;
+      document.getElementById("popup-image").src = image;
+      document.getElementById("popup-price").textContent = "$" + price.toFixed(2);
+      document.getElementById("amountSlider").value = 1;
+      document.getElementById("sliderValue").textContent = "1";
+
+      document.getElementById("product-popup").style.display = "flex";
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} (Size: ${size}, Color: ${color}, Quantity: ${quantity}) has been added to your cart!`);
-    updateCart();
-}
-  function goToCart() {
-          window.location.href = 'cart.html';
+    function closePopup() {
+      document.getElementById("product-popup").style.display = "none";
+    }
+
+    function updateSliderValue() {
+      document.getElementById("sliderValue").textContent =
+        document.getElementById("amountSlider").value;
+    }
+
+    function addToCartFromPopup() {
+      const size = document.getElementById("popup-size").value;
+      const color = document.getElementById("popup-color").value;
+      const quantity = parseInt(document.getElementById("amountSlider").value);
+
+      const existingItem = cart.find(
+        (item) =>
+          item.id === currentProductId &&
+          item.size === size &&
+          item.color === color
+      );
+
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        
+        const image = document.getElementById("popup-image").src;
+
+cart.push({
+  id: currentProductId,
+  name: currentProductName,
+  price: currentProductPrice,
+  size,
+  color,
+  quantity,
+  image,
+});
       }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${currentProductName} added to cart!`);
+      closePopup();
+    }
+
+    function goToCart() {
+      window.location.href = "cart.html";
+    }
   </script>
+<!-- Scripts END -->
 
-  <script>
-function openPopup(title, description, imageSrc) {
-    const popup = document.getElementById('product-popup');
-    document.getElementById('popup-title').textContent = title;
-    document.getElementById('popup-description').textContent = description;
-    document.getElementById('popup-image').src = imageSrc;
-    popup.style.display = 'flex'; // Show the popup
-}
-
-function closePopup() {
-    const popup = document.getElementById('product-popup');
-    popup.style.display = 'none'; // Hide the popup
-}
-
-  </script>
 </body>
 </html>

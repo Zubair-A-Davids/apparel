@@ -4,52 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
+    <link rel="stylesheet" href="styles.css"/>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header, footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-        .container {
+            .container {
             padding: 20px;
         }
         .cart-item {
             display: flex;
+            text-align: center;
             justify-content: space-between;
-            align-items: center;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 5px solid #88106e;
             padding: 10px;
             border-radius: 5px;
-        }
-        button {
-            padding: 5px 10px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Your Cart</h1>
+    <header id="Home">
+      <div class="brand">
+          <img src="images/logo3.png" alt="Ekko Logo">
+          </div>
+      <h1>Ekko Clothing</h1> <br>
+        <button id="cart-button" onclick="window.location.href='index.html'">Continue Shopping</button>
     </header>
+
+    <!-- Navigation Bar Start -->
+  <nav>
+    <h1>Your Shopping Cart</h1>
+  </nav>
+
     <div class="container">
         <div id="cart-items"></div>
         <div>
-            <strong>Total: $<span id="cart-total">0.00</span></strong>
+            <strong>Your Cart Total: R <span id="cart-total">0.00</span></strong>
         </div>
-        <button onclick="goBack()">Continue Shopping</button>
+        <button id="item-button" onclick="checkout()">Checkout</button>
+
     </div>
-    <footer>
-        <p>&copy; 2025 Clothing Store. All Rights Reserved.</p>
-    </footer>
+
+    <nav>
+        <h1 id="About">About</h1>
+    <div class="brand">
+        <img src="images/logo4.png" alt="Ekko Logo">
+        <h2>Ekko Clothing is one of Johannesburg’s fastest-growing retailers, is now taking its beloved kids’ fashion brand online.
+                Known for stylish, high-quality children’s clothing, Ekko has built a strong local presence through its physical stores.
+                Now, the brand is expanding nationwide—reaching families across South Africa exclusively through online sales.
+                With this new digital storefront, Ekko Clothing is making it easier than ever for parents to shop trendy, affordable outfits for their little ones,
+                no matter where they are.
+        </h2>
+    </div>
+    </nav>
     
-    <!-- JS Script-->
+    <div class="text-image-section" id="Contact">
+        <div class="text-content">
+            <h2>Contact Info</h2>
+            <ul class="invisible-list">
+              <li><strong><span class="text-green">Main Location:</span></strong> Carlton Centre, Johannesburg</li>
+              <li><strong><span class="text-green">Email:</span></strong>  ekko_clothing@ekko.co.za</li>
+              <li><strong><span class="text-green">Cell Number:</span></strong>  234 900 345</li>
+              <li><strong><span class="text-green">Banking Details:</span></strong>  Capitec Bank 2352432934</li>
+            </ul>
+          </div>
+        <div class="image-content">
+          <img src="images/map.png" alt="Map of Ekko Location">
+        </div>
+      </div>
+    <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 Ekko Clothing. All rights reserved.</p>
+      </footer>
+    
+<!-- JS Scripts-->
     <script>
         // Load Cart Data from Local Storage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -59,22 +85,31 @@
     const cartTotal = document.getElementById('cart-total');
     cartItemsContainer.innerHTML = '';
     let total = 0;
+    if (cart.length === 0) {
+    cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    cartTotal.textContent = '0.00';
+    return;
+}
 
     cart.forEach(item => {
         total += item.price * item.quantity;
 
         cartItemsContainer.innerHTML += `
-            <div class="cart-item">
-                <span>${item.name} ($${item.price})</span>
-                <span>Size: ${item.size}, Color: ${item.color}</span>
-                <div>
-                    <button onclick="changeQuantity(${item.id}, -1)">-</button>
-                    <span>${item.quantity}</span>
-                    <button onclick="changeQuantity(${item.id}, 1)">+</button>
-                    <button onclick="removeItem(${item.id})">Remove</button>
-                </div>
-            </div>
-        `;
+  <div class="cart-item">
+    <img src="${item.image}" alt="${item.name}" class="cart-image"/>
+    <div class="cart-details">
+      <p><strong>${item.name}</strong></p>
+      <p>Size: ${item.size} | Color: ${item.color}</p>
+      <p><strong><span class="text-green">Price:</span></strong> <Strong>R</Strong> <strong>${item.price}</strong></p>
+    </div>
+    <div class="cart-controls">
+      <button id="item-button" onclick="changeQuantity(${item.id}, -1)">-</button>
+      <span>${item.quantity}</span>
+      <button id="item-button" onclick="changeQuantity(${item.id}, 1)">+</button>
+      <button id="item-button" onclick="removeItem(${item.id})">Remove</button>
+    </div>
+  </div>
+`;
     });
 
     cartTotal.textContent = total.toFixed(2); // Update total price
@@ -104,6 +139,15 @@
 
         // Initialize Cart Page
         loadCart();
+
+        // Check-out
+        function checkout() {
+    alert("Thank you for shopping with Ekko! (This is a demo.)");
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCart();
+}
+
     </script>
 </body>
 </html>

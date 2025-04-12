@@ -1,0 +1,8 @@
+<div class="product">
+    <div class="image-wrapper">
+  <img src="images/jacket5.png" alt="Jet Younger Girls Cream/Black Faux Fur Hoodie">
+    </div>
+  <h3>Jet Younger Girls Cream\Black Faux Fur Hoodie
+  <p>R 219.99</p>
+  <button id="item-button" onclick="openPopup('Jet Younger Girls Cream/Black Faux Fur Hoodie', 'Introducing the JetYounger cream and black faux fur hoodie, perfect for keeping your little one cozy and stylish. This hoodie features a luxurious faux fur trim on the hood and comes in a range of sizes. Stay warm and fashionable with this adorable wardrobe essential.', 'images/jacket5.png', 219.99, 13)">More Info</button>
+</div>
