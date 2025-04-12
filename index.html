@@ -9,8 +9,9 @@
   <link rel="icon" sizes="32x32" href="images/icon.ico">
   <link rel="icon" sizes="16x16" href="images/icon.ico">
 </head>
-<!-- Styles END -->
+ <!-- Styles END -->
 
+ <!-- Content of Web Start -->
 <body>
   <header id="Home">
     <div class="brand">
@@ -20,7 +21,7 @@
     <button id="cart-button" onclick="goToCart()">Go to Cart</button>
   </header>
 
-<!-- Navigation Bar Start -->
+ <!-- Navigation Bar Start -->
   <nav>
     <a href="#Home">Home</a>
     <a href="#Boys">Boys</a>
@@ -29,9 +30,9 @@
     <a href="#About">About</a>
     <a href="#Contact">Contact</a>
   </nav>
-<!-- Navigation Bar END -->
+ <!-- Navigation Bar END -->
 
-<!-- Product Section Start -->
+ <!-- Product Section Start -->
   <div class="container">
     <h2>Welcome to Ekko Clothing, your online closet</h2>
 
@@ -42,7 +43,7 @@
         <h1>Shop Boys Clothing</h1>
     </nav>
 
-<!-- Boys Products -->
+ <!-- Boys Products -->
     <!-- Product 1 -->
     <div class="product" id="Boys">
         <div class="image-wrapper">
@@ -103,12 +104,12 @@
       <button id="item-button" onclick="openPopup('TS Boys Victory Through Effort Light Grey Crew', 'Every day crew sweatshirt. A soft fabric blend and stay-put ribbed hem and cuffs provide reliable comfort.', 'images/jacket2.png', 239.99, 6)">More Info</button>
     </div>
 
-<!-- Nav Bar for Girls Products -->
+ <!-- Nav Bar for Girls Products -->
 <nav>
     <h1>Shop Girls Clothing</h1>
 </nav>
 
-<!-- Girls Products -->
+ <!-- Girls Products -->
        <!-- Product 7 -->
        <div class="product" id="Girls">
         <div class="image-wrapper">
@@ -169,12 +170,12 @@
       <button id="item-button" onclick="openPopup('Cotton On Kids Girl Blue Lucy Cable Jumper', 'Standard length - Cable design - Set in sleeve shape - Long sleeves', 'images/sweater.png', 299.99, 12)">More Info</button>
     </div>
 
-<!-- Nav Bar for Shop Hats and Beanies -->
+ <!-- Nav Bar for Shop Hats and Beanies -->
 <nav>
     <h1>Shop Hats and Beanies</h1>
 </nav>
 
-<!-- Misc Products -->
+ <!-- Misc Products -->
     <!-- Product 13 -->
     <div class="product" id="Hats">
         <div class="image-wrapper">
@@ -236,7 +237,7 @@
     </div>
 </div>
 
-  <!-- Popup info for Products -->
+ <!-- Popup info/code for Products -->
   <div id="product-popup" class="popup">
     <div class="popup-content">
         <button class="close-button" onclick="closePopup()">&times;</button>
@@ -276,8 +277,9 @@
         </div>
       </div>
     </div>      
-<!-- Popup info END -->
+ <!-- Popup info/code END -->
 
+ <!-- About Info -->
 <nav>
     <h1 id="About">About</h1>
 <div class="brand">
@@ -291,27 +293,29 @@
 </div>
 </nav>
 
+ <!-- Contact Info -->
 <div class="text-image-section" id="Contact">
     <div class="text-content">
-        <h2>Contact Info</h2>
+        <h2 class="outlined-text">Contact Info</h2>
         <ul class="invisible-list">
-          <li><strong><span class="text-green">Main Location:</span></strong> Carlton Centre, Johannesburg</li>
-          <li><strong><span class="text-green">Email:</span></strong>  ekko_clothing@ekko.co.za</li>
-          <li><strong><span class="text-green">Cell Number:</span></strong>  234 900 345</li>
-          <li><strong><span class="text-green">Banking Details:</span></strong>  Capitec Bank 2352432934</li>
+          <li class="outlined-text"><strong><span class="text-green">Main Location:</span></strong> Carlton Centre, Johannesburg</li>
+          <li class="outlined-text"><strong><span class="text-green">Email:</span></strong>  ekko_clothing@ekko.co.za</li>
+          <li class="outlined-text"><strong><span class="text-green">Cell Number:</span></strong>  234 900 345</li>
+          <li class="outlined-text"><strong><span class="text-green">Banking Details:</span></strong>  Capitec Bank 2352432934</li>
         </ul>
       </div>
     <div class="image-content">
       <img src="images/map.png" alt="Map of Ekko Location">
     </div>
   </div>
-<!-- Footer -->
+
+ <!-- Footer -->
   <footer>
     <p>&copy; 2025 Ekko Clothing. All rights reserved.</p>
   </footer>
-<!-- Footer END -->
+ <!-- Footer END -->
 
-<!-- Scripts -->
+ <!-- Scripts -->
   <script>
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -379,7 +383,7 @@ cart.push({
       window.location.href = "cart.html";
     }
   </script>
-<!-- Scripts END -->
+ <!-- Scripts END -->
 
 </body>
 </html>
