@@ -6,18 +6,88 @@
     <title>Your Cart</title>
     <link rel="stylesheet" href="styles.css"/>
     <style>
-            .container {
-            padding: 20px;
-        }
-        .cart-item {
-            display: flex;
-            text-align: center;
-            justify-content: space-between;
-            margin: 10px 0;
-            border: 5px solid #88106e;
-            padding: 10px;
-            border-radius: 5px;
-        }
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px; 
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 2px solid #ccc;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Checkout Button */
+#item-button {
+    padding: 10px 20px;
+    background-color: #88106e;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#item-button:hover {
+    background-color: #97177b;
+}
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 5px solid #88106e;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.cart-image {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.cart-details {
+  flex: 1;
+  min-width: 150px;
+}
+
+.cart-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-controls {
+    justify-content: flex-start;
+  }
+
+  #cart-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
     </style>
 </head>
 
@@ -37,14 +107,17 @@
   </nav>
 
    <!-- Cart Total -->
-    <div class="container">
-        <div id="cart-items"></div>
-        <div>
-            <strong>Your Cart Total: R <span id="cart-total">0.00</span></strong>
-        </div>
-        <button id="item-button" onclick="checkout()">Checkout</button>
-    </div>
+<div class="container">
+  <div id="cart-items"></div>
 
+  <div id="cart-footer">
+    <div>
+      <strong>Your Cart Total: R <span id="cart-total">0.00</span></strong>
+    </div>
+    <button id="item-button" onclick="checkout()">Checkout</button>
+  </div>
+</div>
+    
      <!-- Aboout Start -->
     <nav>
         <h1 id="About">About</h1>
