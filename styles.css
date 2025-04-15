@@ -115,12 +115,15 @@ height: 10rem;
       -1px  1px 0 #000000,
        1px  1px 0 #000000;
 }
-.container { padding: 20px; }
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* always 3 per row */
+  gap: 20px;
+  padding: 20px;
+}
+
 .product {
-  display: inline-block;
   background-color: #eeeeee;
-  width: 30%;
-  margin: 10px;
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 8px;
