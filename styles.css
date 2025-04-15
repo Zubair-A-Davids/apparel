@@ -99,13 +99,56 @@ text-decoration: none;
 
 .brand {
 display: flex;
+gap: 10px;
+font-size: 1.5rem; 
+color: rgb(200, 179, 235);
+background-color: #88106e;
+justify-content: space-between;
 align-items: center;
-gap: 10px; 
+padding: 10px 20px;
+}
+.brand h2 {font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 1rem;
+  }
 }
 
 .brand img {
 height: 10rem; 
 }
+
+.logo {
+  display: flex;
+  align-items: justify;
+  gap: 10px;
+  font-size: 1.5rem; 
+  color: rgb(255, 255, 255);
+  }
+.logo img {
+    height: 8rem; 
+    }
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1rem;
+      }
+    }
+
+
 .outlined-text {
   font-size: 26px;
   color: white;
@@ -344,40 +387,16 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     gap: 10px;
     align-items: center;
   }
+  .brand img {
+    max-height: 8rem;
+  }
+  
   @media (max-width: 768px) {
-    nav h2 {
-      font-size: 16px;
-      line-height: 1.4;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      font-weight: normal;
-    }
-  
     .brand img {
-      height: 60px; /* Smaller logo */
-    }
-  
-    .brand {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 10px;
-    }
-  
-    nav {
-      padding: 10px;
-    }
-  
-    h1 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+      max-height: 6rem;
     }
   }
-
+  
 @media (max-width: 768px) {
 .text-image-section {
 flex-direction: column;
